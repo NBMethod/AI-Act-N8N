@@ -1,0 +1,68 @@
+{
+	"name": "n8n-nodes-aiact",
+	"version": "0.1.0",
+	"description": "Check AI workflows against the EU AI Act and record auditable evidence",
+	"keywords": [
+		"n8n-community-node-package",
+		"n8n",
+		"ai-act",
+		"compliance",
+		"eu-ai-act",
+		"governance"
+	],
+	"license": "MIT",
+	"homepage": "https://github.com/aiact/n8n-nodes-aiact",
+	"author": {
+		"name": "AI Act Compliance",
+		"email": "hello@aiact.dev"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/aiact/n8n-nodes-aiact.git"
+	},
+	"bugs": {
+		"url": "https://github.com/aiact/n8n-nodes-aiact/issues"
+	},
+	"engines": {
+		"node": ">=20.15"
+	},
+	"scripts": {
+		"build": "rimraf dist && tsc && gulp build:icons",
+		"dev": "tsc --watch",
+		"format": "prettier nodes credentials --write",
+		"lint": "eslint nodes credentials package.json",
+		"lintfix": "eslint nodes credentials package.json --fix",
+		"scan": "n8n-node lint",
+		"test": "vitest run",
+		"prepublishOnly": "npm run build && npm run lint"
+	},
+	"files": [
+		"dist",
+		"README.md",
+		"LICENSE.md",
+		"example-workflow.json"
+	],
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"credentials": [
+			"dist/credentials/AiActApi.credentials.js"
+		],
+		"nodes": [
+			"dist/nodes/AiAct/AiAct.node.js"
+		]
+	},
+	"devDependencies": {
+		"@typescript-eslint/parser": "^8.0.0",
+		"eslint": "^8.57.0",
+		"eslint-plugin-n8n-nodes-base": "^1.16.3",
+		"gulp": "^5.0.0",
+		"n8n-workflow": "*",
+		"prettier": "^3.3.0",
+		"rimraf": "^6.0.0",
+		"typescript": "^5.9.0",
+		"vitest": "^4.0.0"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	}
+}

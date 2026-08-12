@@ -1,0 +1,96 @@
+{
+  "name": "AI Act — guarded support chatbot",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "trigger",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "resource": "check",
+        "operation": "run",
+        "systemId": "sys_REPLACE_ME",
+        "failOnBlock": false,
+        "options": {
+          "model": "gpt-5",
+          "purpose": "customer_support",
+          "dryRun": true
+        }
+      },
+      "id": "compliance",
+      "name": "AI Act Compliance",
+      "type": "n8n-nodes-aiact.aiAct",
+      "typeVersion": 1,
+      "position": [220, 0],
+      "credentials": {
+        "aiActApi": { "id": "1", "name": "AI Act Compliance API" }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "version": 2 },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.decision }}",
+              "rightValue": "block",
+              "operator": { "type": "string", "operation": "notEquals" }
+            }
+          ],
+          "combinator": "and"
+        }
+      },
+      "id": "gate",
+      "name": "Allowed?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [440, 0]
+    },
+    {
+      "parameters": {},
+      "id": "agent",
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1,
+      "position": [680, -100]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "refusal",
+              "name": "reply",
+              "value": "This request cannot be handled automatically. A human colleague will take over.",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "id": "refusal",
+      "name": "Escalate to human",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3,
+      "position": [680, 100]
+    }
+  ],
+  "connections": {
+    "When chat message received": {
+      "main": [[{ "node": "AI Act Compliance", "type": "main", "index": 0 }]]
+    },
+    "AI Act Compliance": {
+      "main": [[{ "node": "Allowed?", "type": "main", "index": 0 }]]
+    },
+    "Allowed?": {
+      "main": [
+        [{ "node": "AI Agent", "type": "main", "index": 0 }],
+        [{ "node": "Escalate to human", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "pinData": {}
+}
