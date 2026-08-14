@@ -1,4 +1,4 @@
-import type {
+﻿import type {
 	IAuthenticateGeneric,
 	ICredentialTestRequest,
 	ICredentialType,
@@ -10,7 +10,7 @@ export class AiActApi implements ICredentialType {
 
 	displayName = 'AI Act Compliance API';
 
-	documentationUrl = 'https://docs.aiact.dev/authentication';
+	documentationUrl = 'https://github.com/NBMethod/AI-Act-N8N#credentials';
 
 	properties: INodeProperties[] = [
 		{
@@ -26,7 +26,7 @@ export class AiActApi implements ICredentialType {
 			displayName: 'Base URL',
 			name: 'baseUrl',
 			type: 'string',
-			default: 'https://api.aiact.dev',
+			default: 'https://aiact-api.0211-mbei.workers.dev',
 			description: 'Change this only if you run a self-hosted or regional instance',
 		},
 	];

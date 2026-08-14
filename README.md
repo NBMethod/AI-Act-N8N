@@ -1,4 +1,4 @@
-# n8n-nodes-aiact
+﻿# n8n-nodes-aiact
 
 Check AI workflows against the EU AI Act and record auditable evidence, without
 leaving n8n.
@@ -114,7 +114,7 @@ Tested with n8n 1.60 and later. Requires Node.js 20.15 or later.
 ## Resources
 
 - [n8n community nodes documentation](https://docs.n8n.io/integrations/#community-nodes)
-- [AI Act Compliance API documentation](https://docs.aiact.dev)
+- [AI Act Compliance API documentation](https://github.com/NBMethod/AI-Act-N8N#readme)
 - [EU AI Act, Regulation (EU) 2024/1689](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)
 
 ## Disclaimer

@@ -1,4 +1,4 @@
-import {
+﻿import {
 	NodeApiError,
 	NodeOperationError,
 	type IDataObject,
@@ -222,7 +222,7 @@ async function request(
 	body?: IDataObject,
 ): Promise<IDataObject> {
 	const credentials = await context.getCredentials(CREDENTIALS);
-	const baseUrl = String(credentials.baseUrl ?? 'https://api.aiact.dev').replace(/\/+$/, '');
+	const baseUrl = String(credentials.baseUrl ?? 'https://aiact-api.0211-mbei.workers.dev').replace(/\/+$/, '');
 
 	const options: IHttpRequestOptions = {
 		method,

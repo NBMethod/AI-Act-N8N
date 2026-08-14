@@ -1,10 +1,10 @@
-{
+﻿{
   "node": "n8n-nodes-base.aiAct",
   "nodeVersion": "1.0",
   "codexVersion": "1.0",
   "categories": ["Development", "Utility"],
   "resources": {
-    "credentialDocumentation": [{ "url": "https://docs.aiact.dev/authentication" }],
-    "primaryDocumentation": [{ "url": "https://docs.aiact.dev/n8n" }]
+    "credentialDocumentation": [{ "url": "https://github.com/NBMethod/AI-Act-N8N#credentials" }],
+    "primaryDocumentation": [{ "url": "https://github.com/NBMethod/AI-Act-N8N#usage" }]
   }
 }
