@@ -1,4 +1,4 @@
-﻿{
+{
 	"name": "n8n-nodes-aiact",
 	"version": "0.1.0",
 	"description": "Check AI workflows against the EU AI Act and record auditable evidence",
