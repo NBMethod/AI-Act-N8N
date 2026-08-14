@@ -11,17 +11,17 @@
 		"governance"
 	],
 	"license": "MIT",
-	"homepage": "https://github.com/aiact/n8n-nodes-aiact",
+	"homepage": "https://github.com/NBMethod/AI-Act-N8N",
 	"author": {
 		"name": "AI Act Compliance",
-		"email": "hello@aiact.dev"
+		"email": "contact@nbmethod.com"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/aiact/n8n-nodes-aiact.git"
+		"url": "git+https://github.com/NBMethod/AI-Act-N8N.git"
 	},
 	"bugs": {
-		"url": "https://github.com/aiact/n8n-nodes-aiact/issues"
+		"url": "https://github.com/NBMethod/AI-Act-N8N/issues"
 	},
 	"engines": {
 		"node": ">=20.15"
