@@ -1,5 +1,6 @@
 ﻿import {
 	NodeApiError,
+	NodeConnectionTypes,
 	NodeOperationError,
 	type IDataObject,
 	type IExecuteFunctions,
@@ -29,14 +30,14 @@ export class AiAct implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'AI Act Compliance',
 		name: 'aiAct',
-		icon: 'file:aiact.svg',
+		icon: { light: 'file:aiact.svg', dark: 'file:aiact.dark.svg' },
 		group: ['transform'],
 		version: 1,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
 		description: 'Check AI workflows against the EU AI Act and record auditable evidence',
 		defaults: { name: 'AI Act Compliance' },
-		inputs: ['main'],
-		outputs: ['main'],
+		inputs: [NodeConnectionTypes.Main],
+		outputs: [NodeConnectionTypes.Main],
 		usableAsTool: true,
 		credentials: [{ name: CREDENTIALS, required: true }],
 		properties: [...resources, ...checkFields, ...systemFields, ...evidenceFields],
@@ -103,7 +104,9 @@ export class AiAct implements INodeType {
 					});
 					continue;
 				}
-				throw error;
+				// Wrapping keeps the original message while giving n8n a typed error,
+				// so the user sees an actionable message instead of a raw stack trace.
+				throw new NodeOperationError(this.getNode(), error as Error, { itemIndex: i });
 			}
 		}
 
@@ -262,3 +265,4 @@ function parseJson(context: IExecuteFunctions, raw: string, index: number): IDat
 		});
 	}
 }
+

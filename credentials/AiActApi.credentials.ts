@@ -2,6 +2,7 @@
 	IAuthenticateGeneric,
 	ICredentialTestRequest,
 	ICredentialType,
+	Icon,
 	INodeProperties,
 } from 'n8n-workflow';
 
@@ -9,6 +10,10 @@ export class AiActApi implements ICredentialType {
 	name = 'aiActApi';
 
 	displayName = 'AI Act Compliance API';
+
+	// Both variants are required: a single-file icon renders poorly on one of
+	// the two n8n themes.
+	icon: Icon = { light: 'file:aiact.svg', dark: 'file:aiact.dark.svg' };
 
 	documentationUrl = 'https://github.com/NBMethod/AI-Act-N8N#credentials';
 

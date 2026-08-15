@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-aiact",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Check AI workflows against the EU AI Act and record auditable evidence",
 	"keywords": [
 		"n8n-community-node-package",
@@ -30,9 +30,9 @@
 		"build": "rimraf dist && tsc && gulp build:icons",
 		"dev": "tsc --watch",
 		"format": "prettier nodes credentials --write",
-		"lint": "eslint nodes credentials package.json",
-		"lintfix": "eslint nodes credentials package.json --fix",
-		"scan": "n8n-node lint",
+		"lint": "eslint nodes credentials",
+		"lintfix": "eslint nodes credentials --fix",
+		"scan": "npx --yes @n8n/scan-community-package .",
 		"test": "vitest run",
 		"prepublishOnly": "npm run build && npm run lint"
 	},
@@ -52,9 +52,9 @@
 		]
 	},
 	"devDependencies": {
+		"@n8n/eslint-plugin-community-nodes": "^0.29.0",
 		"@typescript-eslint/parser": "^8.0.0",
-		"eslint": "^8.57.0",
-		"eslint-plugin-n8n-nodes-base": "^1.16.3",
+		"eslint": "^9.29.0",
 		"gulp": "^5.0.0",
 		"n8n-workflow": "*",
 		"prettier": "^3.3.0",
