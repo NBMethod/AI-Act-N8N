@@ -19,7 +19,7 @@ export function createContext(options: {
 	const context = {
 		calls,
 		getInputData: () => (options.items ?? [{}]).map((json) => ({ json })),
-		getNode: () => ({ name: 'AI Act Compliance', type: 'n8n-nodes-aiact.aiAct' }),
+		getNode: () => ({ name: 'VerifactAI', type: 'n8n-nodes-aiact.aiAct' }),
 		continueOnFail: () => options.continueOnFail ?? false,
 		getCredentials: async () =>
 			options.credentials ?? { apiKey: 'ak_test_key', baseUrl: 'https://api.aiact.dev' },

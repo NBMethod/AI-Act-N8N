@@ -22,12 +22,12 @@
         }
       },
       "id": "compliance",
-      "name": "AI Act Compliance",
+      "name": "VerifactAI",
       "type": "n8n-nodes-aiact.aiAct",
       "typeVersion": 1,
       "position": [220, 0],
       "credentials": {
-        "aiActApi": { "id": "1", "name": "AI Act Compliance API" }
+        "aiActApi": { "id": "1", "name": "VerifactAI API" }
       }
     },
     {
@@ -80,9 +80,9 @@
   ],
   "connections": {
     "When chat message received": {
-      "main": [[{ "node": "AI Act Compliance", "type": "main", "index": 0 }]]
+      "main": [[{ "node": "VerifactAI", "type": "main", "index": 0 }]]
     },
-    "AI Act Compliance": {
+    "VerifactAI": {
       "main": [[{ "node": "Allowed?", "type": "main", "index": 0 }]]
     },
     "Allowed?": {

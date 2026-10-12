@@ -1,4 +1,4 @@
-﻿import {
+import {
 	NodeApiError,
 	NodeConnectionTypes,
 	NodeOperationError,
@@ -28,14 +28,14 @@ interface CheckResponse {
 
 export class AiAct implements INodeType {
 	description: INodeTypeDescription = {
-		displayName: 'AI Act Compliance',
+		displayName: 'VerifactAI',
 		name: 'aiAct',
 		icon: { light: 'file:aiact.svg', dark: 'file:aiact.dark.svg' },
 		group: ['transform'],
 		version: 1,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
 		description: 'Check AI workflows against the EU AI Act and record auditable evidence',
-		defaults: { name: 'AI Act Compliance' },
+		defaults: { name: 'VerifactAI' },
 		inputs: [NodeConnectionTypes.Main],
 		outputs: [NodeConnectionTypes.Main],
 		usableAsTool: true,
@@ -225,7 +225,7 @@ async function request(
 	body?: IDataObject,
 ): Promise<IDataObject> {
 	const credentials = await context.getCredentials(CREDENTIALS);
-	const baseUrl = String(credentials.baseUrl ?? 'https://aiact-api.0211-mbei.workers.dev').replace(/\/+$/, '');
+	const baseUrl = String(credentials.baseUrl ?? 'https://api.verifactai.app').replace(/\/+$/, '');
 
 	const options: IHttpRequestOptions = {
 		method,
@@ -265,4 +265,3 @@ function parseJson(context: IExecuteFunctions, raw: string, index: number): IDat
 		});
 	}
 }
-

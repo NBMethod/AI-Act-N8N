@@ -1,12 +1,12 @@
-﻿# n8n-nodes-aiact
+# n8n-nodes-aiact
 
 Check AI workflows against the EU AI Act and record auditable evidence, without
 leaving n8n.
 
-This is an [n8n](https://n8n.io) community node. It talks to the AI Act
-Compliance API, which classifies a declared AI system, returns the obligations
-that apply to it today, and appends a tamper-evident evidence record for every
-check.
+This is an [n8n](https://n8n.io) community node for
+[VerifactAI](https://verifactai.app). The VerifactAI API classifies a declared AI
+system, returns the obligations that apply to it today, and appends a
+tamper-evident evidence record for every check.
 
 [Installation](#installation) · [Operations](#operations) ·
 [Credentials](#credentials) · [Usage](#usage) · [Resources](#resources)
@@ -40,17 +40,19 @@ and install `n8n-nodes-aiact`.
 
 ## Credentials
 
-Create an API key in the AI Act Compliance dashboard, under Settings then API
-keys. The key is shown once.
+Create an account on [VerifactAI](https://verifactai.app). Your API key is
+emailed to you as soon as the account is created. It is shown only once: store it
+in your password manager.
 
-The node also accepts a custom **Base URL** for self-hosted or regional
-instances. Leave the default otherwise.
+In n8n, create a **VerifactAI API** credential and paste the key. Leave
+**Base URL** on its default, `https://api.verifactai.app`, unless you run a
+self-hosted or regional instance.
 
 ## Usage
 
 ### 1. Declare the system once
 
-Use **System → Create**, or the dashboard. A minimal declaration for a support
+Use **System → Create**, or the VerifactAI register. A minimal declaration for a support
 chatbot:
 
 ```json
@@ -114,7 +116,8 @@ Tested with n8n 1.60 and later. Requires Node.js 20.15 or later.
 ## Resources
 
 - [n8n community nodes documentation](https://docs.n8n.io/integrations/#community-nodes)
-- [AI Act Compliance API documentation](https://github.com/NBMethod/AI-Act-N8N#readme)
+- [VerifactAI](https://verifactai.app)
+- [Source code and issues](https://github.com/NBMethod/AI-Act-N8N)
 - [EU AI Act, Regulation (EU) 2024/1689](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)
 
 ## Disclaimer

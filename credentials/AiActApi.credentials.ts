@@ -1,4 +1,4 @@
-﻿import type {
+import type {
 	IAuthenticateGeneric,
 	ICredentialTestRequest,
 	ICredentialType,
@@ -9,7 +9,7 @@
 export class AiActApi implements ICredentialType {
 	name = 'aiActApi';
 
-	displayName = 'AI Act Compliance API';
+	displayName = 'VerifactAI API';
 
 	// Both variants are required: a single-file icon renders poorly on one of
 	// the two n8n themes.
@@ -25,13 +25,14 @@ export class AiActApi implements ICredentialType {
 			typeOptions: { password: true },
 			default: '',
 			required: true,
-			description: 'Create one in the AI Act Compliance dashboard, under Settings then API keys',
+			description:
+				'Create an account on <a href="https://verifactai.app" target="_blank">VerifactAI</a>. Your API key is emailed to you and shown only once.',
 		},
 		{
 			displayName: 'Base URL',
 			name: 'baseUrl',
 			type: 'string',
-			default: 'https://aiact-api.0211-mbei.workers.dev',
+			default: 'https://api.verifactai.app',
 			description: 'Change this only if you run a self-hosted or regional instance',
 		},
 	];
