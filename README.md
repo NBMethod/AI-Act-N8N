@@ -9,7 +9,14 @@ system, returns the obligations that apply to it today, and appends a
 tamper-evident evidence record for every check.
 
 [Installation](#installation) · [Operations](#operations) ·
-[Credentials](#credentials) · [Usage](#usage) · [Resources](#resources)
+[Credentials](#credentials) · [Usage](#usage) · [Video walkthrough](#video-walkthrough) ·
+[Resources](#resources)
+
+## Video walkthrough
+
+**[▶ Watch the node in action on YouTube](https://www.youtube.com/watch?v=ibeeEu8h-2E)**
+— installing the node, creating the credential, declaring a system and
+running a compliance check before an AI call.
 
 ## Installation
 
@@ -117,6 +124,7 @@ Tested with n8n 1.60 and later. Requires Node.js 20.15 or later.
 
 - [n8n community nodes documentation](https://docs.n8n.io/integrations/#community-nodes)
 - [VerifactAI](https://verifactai.app)
+- [Video walkthrough](https://www.youtube.com/watch?v=ibeeEu8h-2E)
 - [Source code and issues](https://github.com/NBMethod/AI-Act-N8N)
 - [EU AI Act, Regulation (EU) 2024/1689](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)
 

@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-aiact",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"description": "VerifactAI: check AI workflows against the EU AI Act and record auditable evidence",
 	"keywords": [
 		"n8n-community-node-package",
