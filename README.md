@@ -37,7 +37,8 @@ and install `n8n-nodes-aiact`.
 - **Create** — declare a system once: role, EU scope, what it does, who it
   affects.
 - **Get**, **Get Many**, **Update** — read and maintain the register, including
-  the controls you have implemented and the strict mode setting.
+  the controls you have implemented, their attestations, the strict mode
+  setting, and the rule pack version the system is pinned to.
 
 **Evidence**
 
@@ -105,6 +106,38 @@ Note that only runtime controls can block a call. Organisational controls, such
 as AI literacy training, are reported as missing but never stop a workflow: no
 node can implement a training programme.
 
+### 4. High-risk systems: attest your controls
+
+A system in an Annex III area (recruitment, credit scoring, education,
+biometrics, essential services…) carries the provider or deployer obligations
+of Articles 8 to 27, applicable from 2 December 2027. The rule pack lists them
+article by article, with one control each.
+
+Ticking a control says it is in place. **Control Attestations** say who vouches
+for it, on which document, and until when:
+
+```json
+{
+  "quality_management_system": {
+    "owner": "Head of Quality",
+    "document_ref": "QMS-001 v3",
+    "verified_at": "2027-11-15",
+    "verified_by": "Internal audit",
+    "valid_until": "2028-11-15",
+    "standard_id": "en_18286_2026",
+    "clause": "7.2"
+  }
+}
+```
+
+Past `valid_until`, the control counts as missing again and the dossier says
+why. `standard_id` refers to a recognised standard listed by
+`GET /v1/packs/:ref/schema` — today EN 18286:2026 (harmonised standard for the
+Article 17 quality management system, presumption of conformity limited to
+that requirement) and the Code of Practice on marking and labelling
+AI-generated content (voluntary). An attestation documents how a control was
+implemented; it never certifies the system.
+
 ### Enabling **Fail on Block**
 
 By default a blocked decision flows through as data, so you can branch on it.
@@ -115,6 +148,15 @@ route the item to the error output.
 
 The node sends the system ID and optional metadata: model name, purpose, actor.
 Prompts, responses and message content are never transmitted.
+
+## Rule pack versions
+
+Each system is pinned to the version of the rules it was declared with, so a
+decision taken in March is reproducible with the law of March. When a new
+version is published (for example after the Digital Omnibus or a new
+harmonised standard), move a system to it with **System → Update → Rule Pack
+Version**. The declaration is re-validated against the new version; evidence
+already recorded keeps the version it was produced with.
 
 ## Compatibility
 

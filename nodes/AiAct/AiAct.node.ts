@@ -158,6 +158,18 @@ async function handleSystem(
 			implemented_controls: context.getNodeParameter('implementedControls', index, []) as string[],
 			strict_mode: context.getNodeParameter('strictMode', index, 'off') as string,
 		};
+		// Absent on workflows saved before 0.2.0: treated as "no attestation".
+		const rawAttestations = context.getNodeParameter('controlAttestations', index, '{}') as
+			| string
+			| IDataObject
+			| undefined;
+		const attestations =
+			rawAttestations === undefined || rawAttestations === '' || rawAttestations === '{}'
+				? {}
+				: typeof rawAttestations === 'string'
+					? parseJson(context, rawAttestations, index)
+					: rawAttestations;
+		if (Object.keys(attestations).length > 0) body.control_attestations = attestations;
 		return (await request(context, 'POST', '/v1/systems', body)) as IDataObject;
 	}
 
@@ -182,6 +194,12 @@ async function handleSystem(
 		if (fields.facts !== undefined) body.facts = parseJson(context, String(fields.facts), index);
 		if (fields.implementedControls !== undefined) {
 			body.implemented_controls = fields.implementedControls;
+		}
+		if (fields.controlAttestations !== undefined) {
+			body.control_attestations = parseJson(context, String(fields.controlAttestations), index);
+		}
+		if (fields.packRef !== undefined && String(fields.packRef).trim() !== '') {
+			body.pack_ref = String(fields.packRef).trim();
 		}
 		if (fields.strictMode !== undefined) body.strict_mode = fields.strictMode;
 

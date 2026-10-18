@@ -195,6 +195,29 @@ describe('systems', () => {
 		expect(call.method).toBe('PATCH');
 		expect(call.body).toEqual({ strict_mode: 'on' });
 	});
+
+	it('passes control attestations and a rule pack migration on update', async () => {
+		const context = createContext({
+			parameters: {
+				resource: 'system',
+				operation: 'update',
+				systemId: 'sys_1',
+				updateFields: {
+					controlAttestations: '{"quality_management_system":{"owner":"RQ","standard_id":"en_18286_2026"}}',
+					packRef: 'eu-ai-act@2026.10.1',
+				},
+			},
+			response: { id: 'sys_1' },
+		});
+
+		await node.execute.call(context);
+		const call = (context as unknown as { calls: Array<Record<string, unknown>> }).calls[0];
+		expect(call.method).toBe('PATCH');
+		expect(call.body).toEqual({
+			control_attestations: { quality_management_system: { owner: 'RQ', standard_id: 'en_18286_2026' } },
+			pack_ref: 'eu-ai-act@2026.10.1',
+		});
+	});
 });
 
 describe('evidence', () => {
