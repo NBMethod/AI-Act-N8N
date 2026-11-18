@@ -26,7 +26,7 @@ export class AiActApi implements ICredentialType {
 			default: '',
 			required: true,
 			description:
-				'Create an account on <a href="https://verifactai.app" target="_blank">VerifactAI</a>. Your API key is emailed to you and shown only once.',
+				'Create an account on <a href="https://www.verifactai.app/en#tarifs" target="_blank">VerifactAI</a>. Your API key is emailed to you and shown only once.',
 		},
 		{
 			displayName: 'Base URL',
