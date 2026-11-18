@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-aiact",
-	"version": "0.2.1",
+	"version": "0.2.3",
 	"description": "VerifactAI: check AI workflows against the EU AI Act and record auditable evidence",
 	"keywords": [
 		"n8n-community-node-package",
@@ -12,7 +12,7 @@
 		"governance"
 	],
 	"license": "MIT",
-	"homepage": "https://verifactai.app",
+	"homepage": "https://www.verifactai.app/en#tarifs",
 	"author": {
 		"name": "NBMethod",
 		"email": "contact@nbmethod.com",
