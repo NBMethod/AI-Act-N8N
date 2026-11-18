@@ -4,7 +4,7 @@ Check AI workflows against the EU AI Act and record auditable evidence, without
 leaving n8n.
 
 This is an [n8n](https://n8n.io) community node for
-[VerifactAI](https://verifactai.app). The VerifactAI API classifies a declared AI
+[VerifactAI](https://www.verifactai.app/en#tarifs). The VerifactAI API classifies a declared AI
 system, returns the obligations that apply to it today, and appends a
 tamper-evident evidence record for every check.
 
@@ -48,7 +48,7 @@ and install `n8n-nodes-aiact`.
 
 ## Credentials
 
-Create an account on [VerifactAI](https://verifactai.app). Your API key is
+Create an account on [VerifactAI](https://www.verifactai.app/en#tarifs). Your API key is
 emailed to you as soon as the account is created. It is shown only once: store it
 in your password manager.
 
@@ -165,7 +165,7 @@ Tested with n8n 1.60 and later. Requires Node.js 20.15 or later.
 ## Resources
 
 - [n8n community nodes documentation](https://docs.n8n.io/integrations/#community-nodes)
-- [VerifactAI](https://verifactai.app)
+- [VerifactAI](https://www.verifactai.app/en#tarifs)
 - [Video walkthrough](https://www.youtube.com/watch?v=ibeeEu8h-2E)
 - [Source code and issues](https://github.com/NBMethod/AI-Act-N8N)
 - [EU AI Act, Regulation (EU) 2024/1689](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)
